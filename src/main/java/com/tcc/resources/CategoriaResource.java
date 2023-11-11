@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/categorias")
+@Path("/categoria")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CategoriaResource {
@@ -26,7 +26,7 @@ public class CategoriaResource {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/categoriaById/{id}")
     public Response getCategoriaById(@PathParam("id") Long id) {
         Categoria categoria = categoriaDAO.getCategoriaById(id);
         if(categoria == null) {
@@ -52,7 +52,7 @@ public class CategoriaResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/deleteCategoriaById/{id}")
     public Response deleteCategoriaById(@PathParam("id") Long id) {
         Categoria categoria = categoriaDAO.getCategoriaById(id);
         if(categoria == null) {

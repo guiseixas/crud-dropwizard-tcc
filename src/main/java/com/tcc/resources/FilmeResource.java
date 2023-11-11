@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/filmes")
+@Path("/filme")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class FilmeResource {
@@ -27,8 +27,8 @@ public class FilmeResource {
     }
 
     @GET
-    @Path("/{id}")
-    public Response getFilme(@PathParam("id") Long id) {
+    @Path("/filmeById/{id}")
+    public Response getFilmeById(@PathParam("id") Long id) {
         Filme filme = filmeDAO.getFilmeById(id);
         if(filme == null) {
             throw new NotFoundException("Filme nao encontrado");
@@ -53,7 +53,7 @@ public class FilmeResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/deleteFilmeById/{id}")
     public Response deleteFilmeById(@PathParam("id") Long id) {
         Filme filme = filmeDAO.getFilmeById(id);
         if(filme == null) {

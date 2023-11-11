@@ -1,6 +1,5 @@
 package com.tcc.resources;
 
-import com.tcc.api.Idioma;
 import com.tcc.api.Usuario;
 import com.tcc.db.UsuarioDAO;
 import org.jdbi.v3.sqlobject.customizer.BindBean;
@@ -10,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/usuarios")
+@Path("/usuario")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsuarioResource {
@@ -28,7 +27,7 @@ public class UsuarioResource {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/usuarioById/{id}")
     public Response findUsuarioById(@PathParam("id") Long id) {
         Usuario usuario = usuarioDAO.getUsuarioById(id);
         if(usuario == null) {
@@ -54,7 +53,7 @@ public class UsuarioResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/deleteUsuarioById/{id}")
     public Response deleteUserById(@PathParam("id") Long id) {
         Usuario usuarioDeletar = usuarioDAO.getUsuarioById(id);
         if(usuarioDeletar == null) {

@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("/idiomas")
+@Path("/idioma")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class IdiomaResource {
@@ -26,7 +26,7 @@ public class IdiomaResource {
     }
 
     @GET
-    @Path("/{id}")
+    @Path("/idiomaById/{id}")
     public Response getIdiomaById(@PathParam("id") Long id) {
         Idioma idioma = idiomaDAO.getIdiomaById(id);
         if(idioma == null) {
@@ -52,7 +52,7 @@ public class IdiomaResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/deleteIdiomaById/{id}")
     public Response deleteIdiomaById(@PathParam("id") Long id) {
         Idioma idioma = idiomaDAO.getIdiomaById(id);
         if(idioma == null) {
