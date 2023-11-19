@@ -2,8 +2,13 @@ package com.tcc.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+
+@Entity
 public class Categoria {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @JsonProperty
     private Long id;
 
@@ -13,6 +18,7 @@ public class Categoria {
     @JsonProperty
     private String tag;
 
+    @ManyToOne
     private Idioma idioma;
 
     public Categoria() {

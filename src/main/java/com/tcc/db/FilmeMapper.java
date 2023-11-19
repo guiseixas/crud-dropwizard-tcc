@@ -13,7 +13,6 @@ import java.sql.SQLException;
 public class FilmeMapper implements RowMapper<Filme> {
     @Override
     public Filme map(ResultSet rs, StatementContext ctx) throws SQLException {
-        System.out.println("ele chega a entrar aqui?");
         Filme filme = new Filme();
         filme.setId(rs.getLong("id"));
         filme.setTitulo(rs.getString("titulo"));

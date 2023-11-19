@@ -2,39 +2,44 @@ package com.tcc.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.*;
 
+@Entity
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @JsonProperty
     private Long id;
 
+    @Column(nullable = false)
     @JsonProperty
     private String nome;
 
+    @Column(nullable = false)
     @JsonProperty
     private String cpf;
 
+    @Column(nullable = false)
     @JsonProperty
     private String telefone;
 
+    @Column(nullable = false)
     @JsonProperty
     private String email;
 
+    @Column(nullable = false)
     @JsonProperty
     private String senha;
 
+    @OneToOne
     @JsonProperty
     private Idioma idioma;
-
-    @JsonProperty
-    private List<Perfil> perfis = new ArrayList<>();
 
     public Usuario() {
     }
 
-    public Usuario(Long id, String nome, String cpf, String telefone, String email, String senha, Idioma idioma, List<Perfil> perfis) {
+    public Usuario(Long id, String nome, String cpf, String telefone, String email, String senha, Idioma idioma) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -42,7 +47,6 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.idioma = idioma;
-        this.perfis = perfis;
     }
 
     public Long getId() {
@@ -73,10 +77,6 @@ public class Usuario {
         return idioma;
     }
 
-    public List<Perfil> getPerfis() {
-        return perfis;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -103,9 +103,5 @@ public class Usuario {
 
     public void setIdioma(Idioma idioma) {
         this.idioma = idioma;
-    }
-
-    public void setPerfis(List<Perfil> perfis) {
-        this.perfis = perfis;
     }
 }

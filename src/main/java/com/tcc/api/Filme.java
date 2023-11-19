@@ -2,28 +2,39 @@ package com.tcc.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+
+@Entity
 public class Filme {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @JsonProperty
     private Long id;
 
+    @Column(nullable = false)
     @JsonProperty
     private String titulo;
 
+    @Column(nullable = false)
     @JsonProperty
     private String sinopse;
 
     @JsonProperty
     private String imagem;
 
+    @Column(nullable = false)
     @JsonProperty
     private String dataLancamento;
 
+    @Column(nullable = false)
     @JsonProperty
     private String duracao;
 
+    @ManyToOne
     private Idioma idioma;
 
+    @ManyToOne
     private Categoria categoria;
 
     public Filme() {

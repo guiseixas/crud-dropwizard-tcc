@@ -19,7 +19,6 @@ public class UsuarioMapper implements RowMapper<Usuario> {
         usuario.setTelefone(rs.getString("telefone"));
         usuario.setSenha(rs.getString("senha"));
         usuario.setIdioma(mapIdioma(rs));
-        usuario.setPerfis(null);
         return usuario;
     }
 

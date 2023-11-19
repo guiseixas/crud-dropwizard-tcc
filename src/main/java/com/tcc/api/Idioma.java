@@ -2,14 +2,21 @@ package com.tcc.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
+
+@Entity
 public class Idioma {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty
     private Long id;
 
+    @Column(nullable = false)
     @JsonProperty
     private String nome;
 
+    @Column(nullable = false)
     @JsonProperty
     private String tag;
 
