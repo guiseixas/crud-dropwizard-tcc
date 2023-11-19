@@ -2,7 +2,6 @@ com\tcc\db\CategoriaMapper.class
 com\tcc\db\UsuarioMapper.class
 com\tcc\db\FilmeMapper.class
 com\tcc\db\IdiomaMapper.class
-com\tcc\api\Perfil.class
 com\tcc\api\Usuario.class
 com\tcc\AppServiceConfiguration.class
 com\tcc\resources\FilmeResource.class

@@ -12,9 +12,11 @@ public class Categoria {
     @JsonProperty
     private Long id;
 
+    @Column(nullable = false)
     @JsonProperty
     private String nome;
 
+    @Column(nullable = false)
     @JsonProperty
     private String tag;
 
